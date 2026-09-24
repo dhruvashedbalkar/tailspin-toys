@@ -51,6 +51,8 @@ export async function getAllGameIds(db: Database): Promise<number[]> {
 }
 ```
 
+- Add TSDoc/JSDoc to every exported function in `db/` and `src/lib/`. The comment must state the function's purpose, document every parameter with `@param` (including the injectable `db` argument), and document the result with `@returns`.
+- Comments should explain intent, constraints, or non-obvious decisions. Do not add comments that merely paraphrase a query or statement, and update or remove comments when the related code changes.
 - Always `order by` a stable column (title) so static builds are deterministic.
 - Map raw rows to the app-facing `Game`/`Publisher`/`Category` types in one place; don't leak Drizzle row shapes into components.
 - Keep ordering/lookup logic in `games.ts`, not in pages.
